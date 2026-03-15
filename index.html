@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Love Page</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f5f5f5;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    overflow:hidden;
+}
+
+.container{
+    text-align:center;
+}
+
+h1{
+    font-size:60px;
+}
+
+button{
+    padding:12px 25px;
+    font-size:18px;
+    background:#ff4d6d;
+    border:none;
+    color:white;
+    border-radius:25px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#e63956;
+}
+
+#message{
+    margin-top:30px;
+    font-size:40px;
+    color:#ff4d6d;
+    display:none;
+}
+
+/* Heart Style */
+
+.heart{
+    position: absolute;
+    bottom:0;
+    font-size:25px;
+    animation: floatUp 4s linear infinite;
+}
+
+@keyframes floatUp{
+    0%{
+        transform: translateY(0);
+        opacity:1;
+    }
+    100%{
+        transform: translateY(-800px);
+        opacity:0;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>ALL YOU NEED IS LOVE</h1>
+    <button onclick="showLove()">Find it</button>
+
+    <div id="message">I Love You Sami ❤️</div>
+</div>
+
+<script>
+
+function showLove(){
+    document.getElementById("message").style.display="block";
+
+    setInterval(createHeart,300);
+}
+
+function createHeart(){
+    const heart=document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="❤️";
+
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(20+Math.random()*30)+"px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },4000);
+}
+
+</script>
+
+</body>
+</html>
